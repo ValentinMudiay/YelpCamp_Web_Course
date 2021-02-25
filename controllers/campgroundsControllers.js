@@ -21,7 +21,7 @@ module.exports.campsIndex = async (req, res, next) => {
     //     console.log(campground.title);
     //     totalCamps ++;
     // }
-    // console.log(totalCamps); -------------------------------
+    // console.log(totalCamps); //-------------------------------
     res.render('campgrounds/index.ejs', {campgrounds});
 }
 

@@ -2,12 +2,12 @@
 const mongoose = require('mongoose'); //Import Mongoose
 const cities = require('./cities.js');
 //const {places, descriptors} = require('./seedHelper.js')
-
+const dbUrl = 'mongodb+srv://vmudiay:Loyola123@cluster-yelpcamp.3di2u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' ||  'mongodb://localhost:27017/yelpCamp'; // virtual mongodb atlas link --> mongodb+srv://vmudiay:<password>@cluster-yelpcamp.3di2u.
 
 const Campground = require('../models/campground.js'); //import Campground Schema
 const Review = require('../models/review.js'); //import Campground Schema
 const { descriptors, places } = require('./seedHelper.js');
-mongoose.connect('mongodb://localhost:27017/yelpCamp', {
+mongoose.connect(dbUrl, {
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     useCreateIndex: true
