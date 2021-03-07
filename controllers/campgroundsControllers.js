@@ -8,9 +8,10 @@ const geocoder = mbxGeocoding({accessToken: mapBoxToken});
 module.exports.campsIndex = async (req, res, next) => {
     const campgrounds = await Campground.find({}); 
     console.log("--- Viewing all campgrounds. Campground object ...");
-    // console.log("Image filename ... " , campgrounds[0].image.filename);
-    // console.log("Image url ... ", campgrounds[0].image.url);
-    //---- use to populate geodata for campgrounds after reseeding all of them
+    console.log(campgrounds[0]);
+    console.log("Image filename ... " , campgrounds[0].image.filename);
+    console.log("Image url ... ", campgrounds[0].image.url);
+    // //---- use to populate geodata for campgrounds after reseeding all of them
     //  let totalCamps = 0;
     // for (let campground of campgrounds) {
     //     const geoData = await geocoder.forwardGeocode({ query: campground.location, limit: 1 }).send();
@@ -64,6 +65,7 @@ module.exports.viewCampground = async (req, res, next) =>{
             path: 'author' //populate the author for each of the reviews 
         }
     }).populate('author'); //populate the author of the campground we are on
+    console.log(campground);
     if(!campground) {
         req.flash('error', 'Cannot find that campground!');
         return res.redirect('/campgrounds');
